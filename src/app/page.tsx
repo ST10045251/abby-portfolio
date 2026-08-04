@@ -1,18 +1,23 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export default function Home() {
-  // Animation variant settings
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: 'easeOut' } 
+    }
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.15 } }
+    visible: { 
+      transition: { staggerChildren: 0.15 } 
+    }
   };
 
   return (
@@ -149,7 +154,7 @@ export default function Home() {
       <footer id="contact" className="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
         <p>© {new Date().getFullYear()} Abby. Built with Next.js & Tailwind CSS.</p>
         <div className="flex gap-6">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
+          <a href="https://github.com/ST10045251" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           <a href="mailto:your-email@example.com" className="hover:text-white transition-colors">Email</a>
         </div>
