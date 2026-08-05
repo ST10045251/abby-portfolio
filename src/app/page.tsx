@@ -46,7 +46,7 @@ export default function Home() {
         </motion.p>
 
         <motion.div variants={fadeInUp} className="flex gap-4 pt-2">
-          <a href="#projects" className="px-5 py-2.5 rounded-lg text-black font-medium hover:bg-gray-200 transition-all hover:scale-105 active:scale-95">
+          <a href="#projects" className="px-5 py-2.5 rounded-lg text-white font-medium hover:bg-gray-200 transition-all hover:scale-105 active:scale-95">
             View Projects ↓
           </a>
           <a href="#contact" className="px-5 py-2.5 rounded-lg border border-gray-700 text-gray-300 font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">
@@ -69,7 +69,7 @@ export default function Home() {
             { category: 'Languages', items: 'Java, C#, JS, TS, Python, HTML/CSS' },
             { category: 'Frontend', items: 'React, Next.js, Tailwind CSS' },
             { category: 'Backend & DB', items: 'Node.js, Express, REST APIs, SQL' },
-            { category: 'Tools', items: 'Git, GitHub, VS Code, Postman' }
+            { category: 'Tools', items: 'Git, GitHub, VS Code, Postman, Android Studio' }
           ].map((skill, index) => (
             <motion.div 
               key={index} 
@@ -157,7 +157,7 @@ export default function Home() {
         <div className="flex gap-6">
           <a href="https://github.com/ST10045251" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
           <a href="https://www.linkedin.com/in/abigail-finnis/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="mailto:abby.alicia.f@icloud.com" className="hover:text-white transition-colors">Email</a>
+          <a href="mailto:https://abby.alicia.f@icloud.com" className="hover:text-white transition-colors">Email</a>
         </div>
       </footer>
     </main>
