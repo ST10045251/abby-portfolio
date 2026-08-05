@@ -40,12 +40,13 @@ export default function Home() {
         </motion.h1>
 
         <motion.p variants={fadeInUp} className="text-lg text-gray-400 max-w-2xl">
-          Hi, I’m Abby. I hold a Bachelor's degree in Computer & Application Development. 
-          I specialize in building clean frontends, robust backends, and reliable software applications.
+          Hi, I’m Abigail Finnis. I hold a Bachelor's degree in Computer & Application Development. 
+          I specialize in building clean frontends, robust backends, and reliable software applications. I have studied Application and Web Development 
+          for 4 years. I am currently unemployed and available to any positions.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="flex gap-4 pt-2">
-          <a href="#projects" className="px-5 py-2.5 rounded-lg bg-white text-black font-medium hover:bg-gray-200 transition-all hover:scale-105 active:scale-95">
+          <a href="#projects" className="px-5 py-2.5 rounded-lg text-black font-medium hover:bg-gray-200 transition-all hover:scale-105 active:scale-95">
             View Projects ↓
           </a>
           <a href="#contact" className="px-5 py-2.5 rounded-lg border border-gray-700 text-gray-300 font-medium hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">
@@ -152,11 +153,11 @@ export default function Home() {
 
       {/* 4. FOOTER / CONTACT */}
       <footer id="contact" className="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
-        <p>© {new Date().getFullYear()} Abby. Built with Next.js & Tailwind CSS.</p>
+        <p>© {new Date().getFullYear()} Abigail. Built with Next.js & Tailwind CSS.</p>
         <div className="flex gap-6">
           <a href="https://github.com/ST10045251" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="mailto:your-email@example.com" className="hover:text-white transition-colors">Email</a>
+          <a href="https://www.linkedin.com/in/abigail-finnis/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <a href="mailto:abby.alicia.f@icloud.com" className="hover:text-white transition-colors">Email</a>
         </div>
       </footer>
     </main>
