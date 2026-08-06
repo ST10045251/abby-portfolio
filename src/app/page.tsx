@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { image } from 'framer-motion/client';
 
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -57,9 +58,10 @@ export default function Home() {
         </motion.div>
 
         <motion.p variants={fadeInUp} className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
-          Hi, I’m Abigail Finnis. I hold a Bachelor's degree in Computer & Application Development. 
+          Hi, I am Abigail Finnis. I hold a Bachelor's degree in Computer & Application Development. 
           I specialize in building clean frontends, robust backends, and reliable software applications. I have studied Application and Web Development 
-          for 4 years. I am currently unemployed and available to any positions.
+          for 4 years and I am an aspiring Frontend Developer with a core focus on building seamless, responsive, and high-performance user interfaces for product companies or agencies.
+          I am currently unemployed and available to any positions.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="flex gap-4 pt-2">
@@ -121,19 +123,22 @@ export default function Home() {
               title: 'Table Valley Municipal App', 
               desc: 'A civic application for citizens to report municipal issues, track status updates, and access local community announcements.', 
               tags: ['.NET MAUI', 'C#', 'XAML'],
-              github: 'https://github.com/VCCT-PROG7312-2025-G1/TableValleyMunicipalApp-ST10045251.git'
+              github: 'https://github.com/VCCT-PROG7312-2025-G1/TableValleyMunicipalApp-ST10045251.git',
+              image: '/TableValley.jpg'
             },
             { 
               title: 'PROG7314 Mobile Platform', 
               desc: 'A collaborative mobile application featuring user authentication, cloud syncing, and reactive user interfaces.', 
               tags: ['Android', 'Kotlin', 'Firebase'],
-              github: 'https://github.com/VCCT-PROG7314-2025-G1/PROG7314_PoeFinal.git'
+              github: 'https://github.com/VCCT-PROG7314-2025-G1/PROG7314_PoeFinal.git',
+              image: '/PROG7314.jpg'
             },
             { 
               title: 'INSY7314 Enterprise System', 
               desc: 'An enterprise information system managing business logic, secure database operations, and multi-tiered architectures.', 
               tags: ['C#', '.NET', 'SQL'],
-              github: 'https://github.com/RiaanCarelse17/INSY7314_POE_FINAL.git'
+              github: 'https://github.com/RiaanCarelse17/INSY7314_POE_FINAL.git',
+              image: '/INSY7314.jpg'
             }
           ].map((proj, idx) => (
             <motion.div 
@@ -143,9 +148,16 @@ export default function Home() {
               className="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50/80 dark:bg-gray-900/40 hover:border-gray-300 dark:hover:border-gray-700 transition-colors flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
-                <div className="h-40 rounded-lg bg-gray-200 dark:bg-gray-800/80 flex items-center justify-center text-gray-500 dark:text-gray-400 font-mono text-xs text-center p-4">
-                  [ Screenshot / Preview ]
+                {/* PROJECT SCREENSHOT */}
+                <div className="relative h-48 w-full rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-800">
+                  <Image
+                    src={proj.image}
+                    alt={proj.title}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">{proj.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{proj.desc}</p>
               </div>
