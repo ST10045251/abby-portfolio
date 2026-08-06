@@ -1,10 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -46,8 +48,8 @@ export default function Home() {
           for 4 years. I am currently unemployed and available to any positions.
         </motion.p>
 
-        {/* PROFILE IMAGE */}
-        <motion.div variants={fadeInUp} className="py-2">
+        {/* PROFILE IMAGE (CENTERED) */}
+        <motion.div variants={fadeInUp} className="py-2 flex justify-center">
           <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-lg shadow-emerald-500/10">
             <Image
               src="/profile.jpg"
@@ -63,9 +65,13 @@ export default function Home() {
           <a href="#projects" className="px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-900 text-white dark:bg-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all hover:scale-105 active:scale-95">
             View Projects ↓
           </a>
-          <a href="#contact" className="px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">
+          {/* GET IN TOUCH BUTTON (OPENS MODAL) */}
+          <button 
+            onClick={() => setIsContactOpen(true)}
+            className="px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all hover:scale-105 active:scale-95"
+          >
             Get in Touch
-          </a>
+          </button>
         </motion.div>
       </motion.section>
 
@@ -165,15 +171,88 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* 4. FOOTER / CONTACT */}
+      {/* 4. FOOTER */}
       <footer id="contact" className="pt-12 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 dark:text-gray-400 text-sm">
         <p>© {new Date().getFullYear()} Abigail. Built with Next.js & Tailwind CSS.</p>
         <div className="flex gap-6">
           <a href="https://github.com/ST10045251" target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">GitHub</a>
           <a href="https://www.linkedin.com/in/abigail-finnis/" target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">LinkedIn</a>
-          <a href="mailto:abby.alicia.f@icloud.com" className="hover:text-gray-900 dark:hover:text-white transition-colors">Email</a>
+          <button onClick={() => setIsContactOpen(true)} className="hover:text-gray-900 dark:hover:text-white transition-colors">
+            Contact Me
+          </button>
         </div>
       </footer>
+
+      {/* 5. CONTACT POPUP MODAL */}
+      <AnimatePresence>
+        {isContactOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsContactOpen(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Card */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              className="relative w-full max-w-md p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-2xl space-y-6 z-10 text-gray-900 dark:text-white"
+            >
+              <div className="flex justify-between items-center">
+                <h3 className="text-xl font-bold">Get in Touch</h3>
+                <button 
+                  onClick={() => setIsContactOpen(false)}
+                  className="p-1 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="space-y-4 text-sm">
+                {/* Email */}
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                  <span className="text-gray-500 dark:text-gray-400 font-medium">Email</span>
+                  <a href="mailto:abby.alicia.f@icloud.com" className="font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">
+                    abby.alicia.f@icloud.com
+                  </a>
+                </div>
+
+                {/* Phone */}
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                  <span className="text-gray-500 dark:text-gray-400 font-medium">Phone</span>
+                  <a href="tel:+27631624814" className="font-semibold text-gray-800 dark:text-gray-200 hover:underline">
+                    +27 63 162 4814
+                  </a>
+                </div>
+
+                {/* LinkedIn */}
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                  <span className="text-gray-500 dark:text-gray-400 font-medium">LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/abigail-finnis/" target="_blank" rel="noreferrer" className="font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">
+                    Abigail-Finnis →
+                  </a>
+                </div>
+              </div>
+
+              {/* Download CV Button */}
+              <div className="pt-2">
+                <a 
+                  href="/resume.pdf" 
+                  download="Abigail_Finnis_CV.pdf"
+                  className="w-full py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-medium flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  📄 Download CV
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
