@@ -27,7 +27,7 @@ export default function Home() {
     <main className="min-h-screen max-w-5xl mx-auto px-6 py-12 space-y-24">
       {/* 1. HERO SECTION */}
       <motion.section 
-        className="space-y-6 pt-12"
+        className="pt-12 space-y-8"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
@@ -37,20 +37,15 @@ export default function Home() {
           Available for new opportunities
         </motion.div>
 
-        <motion.h1 variants={fadeInUp} className="text-4xl sm:text-6xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
-          Software Developer & <br />
-          <span className="text-gray-500 dark:text-gray-400">Computer Science Graduate</span>
-        </motion.h1>
+        {/* Heading & Image Row */}
+        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
+            Software Developer & <br />
+            <span className="text-gray-500 dark:text-gray-400">Computer Science Graduate</span>
+          </h1>
 
-        <motion.p variants={fadeInUp} className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
-          Hi, I’m Abigail Finnis. I hold a Bachelor's degree in Computer & Application Development. 
-          I specialize in building clean frontends, robust backends, and reliable software applications. I have studied Application and Web Development 
-          for 4 years. I am currently unemployed and available to any positions.
-        </motion.p>
-
-        {/* PROFILE IMAGE (CENTERED) */}
-        <motion.div variants={fadeInUp} className="py-2 flex justify-center">
-          <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-lg shadow-emerald-500/10">
+          {/* PROFILE IMAGE */}
+          <div className="relative w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-lg shadow-emerald-500/10 shrink-0">
             <Image
               src="/profile.jpg"
               alt="Abigail Finnis"
@@ -60,6 +55,12 @@ export default function Home() {
             />
           </div>
         </motion.div>
+
+        <motion.p variants={fadeInUp} className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+          Hi, I’m Abigail Finnis. I hold a Bachelor's degree in Computer & Application Development. 
+          I specialize in building clean frontends, robust backends, and reliable software applications. I have studied Application and Web Development 
+          for 4 years. I am currently unemployed and available to any positions.
+        </motion.p>
 
         <motion.div variants={fadeInUp} className="flex gap-4 pt-2">
           <a href="#projects" className="px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-900 text-white dark:bg-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all hover:scale-105 active:scale-95">
