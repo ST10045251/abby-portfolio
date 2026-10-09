@@ -255,7 +255,7 @@ export default function Home() {
               {/* Download CV Button */}
               <div className="pt-2">
                 <a 
-                  href="/resume.pdf" 
+                  href="/Abigail_Finnis_CV.pdf" 
                   download="Abigail_Finnis_CV.pdf"
                   className="w-full py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-medium flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
                 >
